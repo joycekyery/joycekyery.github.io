@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Homepage from 'container/home'
-
+import './css/index.scss'
 function App() {
   const router = createBrowserRouter([
     {
@@ -38,7 +38,11 @@ function App() {
       // ],
     },
   ])
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  )
 }
 
 export default App
