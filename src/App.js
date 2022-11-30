@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Homepage from 'container/home'
 import './css/index.scss'
+import NavBar from './container/navBar'
+import Footer from './container/footer'
 function App() {
   const router = createBrowserRouter([
     {
@@ -39,9 +41,13 @@ function App() {
     },
   ])
   return (
-    <>
+    // <Box overflow="hidden">
+    <Fragment>
+      <NavBar />
       <RouterProvider router={router} />
-    </>
+      <Footer />
+    </Fragment>
+    // </Box>
   )
 }
 
