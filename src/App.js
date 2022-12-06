@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import './css/index.scss'
 import NavBar from 'container/navBar'
 import Footer from 'container/footer'
@@ -9,7 +9,15 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from '@mui/material/styles'
-import { aboutMeRoute, homeRoute } from 'route/routeItems'
+import { router } from 'route/routeItems'
+const NavbarWrapper = () => {
+  return (
+    <div>
+      <NavBar />
+      <Outlet />
+    </div>
+  )
+}
 
 function App() {
   let theme = createTheme()
@@ -26,12 +34,18 @@ function App() {
     },
   }
 
-  const router = createBrowserRouter([homeRoute, aboutMeRoute])
+  const routers = createBrowserRouter([
+    {
+      path: '/',
+      element: <NavbarWrapper />,
+      children: router,
+    },
+  ])
   return (
     // <Box overflow="hidden">
     <ThemeProvider theme={theme}>
-      <NavBar />
-      <RouterProvider router={router} />
+      {/* <NavBar /> */}
+      <RouterProvider router={routers} />
       <Footer />
     </ThemeProvider>
     // </Box>

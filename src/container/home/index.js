@@ -62,7 +62,8 @@ const Homepage = () => {
     <Fragment>
       <Box
         height="100%"
-        paddingTop="50px"
+        minHeight="100vh"
+        paddingTop="80px"
         width="100%"
         sx={{ background: 'linear-gradient(#022422, #4e7270, #B9E1DE )' }}
       >
@@ -166,7 +167,6 @@ const Homepage = () => {
       </Box>
       <IconButton
         size="large"
-        contained
         className="moreAboutMeButton"
         sx={{
           position: 'absolute',

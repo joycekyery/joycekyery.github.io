@@ -1,9 +1,19 @@
 import { Box } from '@mui/system'
 import React from 'react'
-import HomeIcon from '@mui/icons-material/Home'
-import { IconButton } from '@mui/material'
+import { Button, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { router } from 'route/routeItems'
 
 const NavBar = () => {
+  const location = window.location.pathname.substring(
+    1,
+    window.location.pathname.length
+  )
+  const navigate = useNavigate()
+
+  const newRouter = router.reduce((acc, curr) => {
+    return { ...acc, [curr.path]: curr }
+  }, {})
   return (
     <Box
       sx={{
@@ -14,7 +24,7 @@ const NavBar = () => {
         left: '0',
         zIndex: '9999',
         width: '100%',
-        height: '50px',
+        height: '80px',
         backdropFilter: 'blur(10px)',
       }}
     >
@@ -39,14 +49,38 @@ const NavBar = () => {
       >
         <Box
           sx={{
-            height: 'inherit',
             display: 'flex',
             flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
           }}
         >
-          <IconButton size="large">
-            <HomeIcon fontSize="inherit" />
-          </IconButton>
+          <Typography
+            sx={{
+              color: '#F4F0F0',
+            }}
+            variant="h3"
+            pl={3}
+          >
+            {newRouter[location] && newRouter[location].title}
+          </Typography>
+
+          <Box pr={3}>
+            {router.map((r, index) => (
+              <Button
+                key={index}
+                sx={{
+                  color: '#F4F0F0',
+                }}
+                onClick={() => {
+                  navigate(r.path)
+                }}
+              >
+                {r.title}
+              </Button>
+            ))}
+          </Box>
         </Box>
       </Box>
     </Box>

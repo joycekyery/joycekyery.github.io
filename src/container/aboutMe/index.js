@@ -301,7 +301,6 @@ const AboutMe = () => {
           >
             <IconButton
               size="large"
-              contained
               className="moreAboutMeButton"
               sx={{
                 color: '#F4F0F0',

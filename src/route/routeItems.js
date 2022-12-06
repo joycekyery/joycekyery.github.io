@@ -6,12 +6,17 @@ import Project from 'container/project'
 export const homeRoute = {
   path: HOME,
   element: <Homepage />,
+  title: 'Home',
 }
 export const aboutMeRoute = {
   path: ABOUT_ME,
   element: <AboutMe />,
+  title: 'About Me',
 }
 export const projectRoute = {
   path: PROJECT,
   element: <Project />,
+  title: 'Projects',
 }
+
+export const router = [homeRoute, aboutMeRoute, projectRoute]
