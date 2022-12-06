@@ -7,6 +7,7 @@ import {
   CardContent,
   Typography,
   IconButton,
+  Link,
 } from '@mui/material'
 import WebAssetIcon from '@mui/icons-material/WebAsset'
 import { projects } from 'asset/project'
@@ -77,48 +78,61 @@ const Project = () => {
                     </Box>
                     <Box display="flex" justifyContent="space-between" p={3}>
                       {p.sourceCode && (
-                        <IconButton
-                          size="small"
-                          className="moreAboutMeButton"
-                          sx={{
-                            color: '#022422',
-                            border: 'solid',
-                            borderColor: '#d0bb96',
-                            backgroundColor: '#d0bb96',
-                            borderRadius: '10px',
-                            '&:hover': {
-                              backgroundColor: '#022422',
-                              color: '#F4F0F0',
-                              transition: 'background-color 200ms linear',
-                            },
-                          }}
-                          onClick={() => {}}
+                        <Link
+                          href={p.sourceCode}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          underline="none"
                         >
-                          Source Code&nbsp;
-                          <GitHubIcon fontSize="inherit" />
-                        </IconButton>
+                          <IconButton
+                            size="small"
+                            className="moreAboutMeButton"
+                            sx={{
+                              color: '#022422',
+                              border: 'solid',
+                              borderColor: '#d0bb96',
+                              backgroundColor: '#d0bb96',
+                              borderRadius: '10px',
+                              '&:hover': {
+                                backgroundColor: '#022422',
+                                color: '#F4F0F0',
+                                transition: 'background-color 200ms linear',
+                              },
+                            }}
+                          >
+                            Source Code&nbsp;
+                            <GitHubIcon fontSize="inherit" />
+                          </IconButton>
+                        </Link>
                       )}
                       {p.visit && (
-                        <IconButton
-                          size="small"
-                          className="moreAboutMeButton"
-                          sx={{
-                            color: '#022422',
-                            border: 'solid',
-                            borderColor: '#d0bb96',
-                            backgroundColor: '#d0bb96',
-                            borderRadius: '10px',
-                            '&:hover': {
-                              backgroundColor: '#022422',
-                              color: '#F4F0F0',
-                              transition: 'background-color 200ms linear',
-                            },
-                          }}
-                          onClick={() => {}}
+                        <Link
+                          href={p.visit}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          underline="none"
                         >
-                          Visit&nbsp;
-                          <WebAssetIcon fontSize="inherit" />
-                        </IconButton>
+                          <IconButton
+                            size="small"
+                            className="moreAboutMeButton"
+                            sx={{
+                              color: '#022422',
+                              border: 'solid',
+                              borderColor: '#d0bb96',
+                              backgroundColor: '#d0bb96',
+                              borderRadius: '10px',
+                              '&:hover': {
+                                backgroundColor: '#022422',
+                                color: '#F4F0F0',
+                                transition: 'background-color 200ms linear',
+                              },
+                            }}
+                            onClick={() => {}}
+                          >
+                            Visit&nbsp;
+                            <WebAssetIcon fontSize="inherit" />
+                          </IconButton>
+                        </Link>
                       )}
                     </Box>
                   </Box>
