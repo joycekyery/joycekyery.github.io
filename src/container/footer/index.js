@@ -69,7 +69,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GitHubIcon style={{ color: 'F4F0F0' }} />
+                <GitHubIcon style={{ color: '#F4F0F0' }} />
               </Link>
               <Link
                 p={1}
@@ -77,7 +77,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <InstagramIcon style={{ color: 'F4F0F0' }} />
+                <InstagramIcon style={{ color: '#F4F0F0' }} />
               </Link>
               <Link
                 p={1}
@@ -85,7 +85,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <LinkedInIcon style={{ color: 'F4F0F0' }} />
+                <LinkedInIcon style={{ color: '#F4F0F0' }} />
               </Link>
               <LightTooltip
                 title="Copied!"
@@ -103,7 +103,7 @@ const Footer = () => {
                     navigator.clipboard.writeText('7a.joyce.lin@gmail.com')
                   }}
                 >
-                  <EmailIcon style={{ color: 'F4F0F0' }} />
+                  <EmailIcon style={{ color: '#F4F0F0' }} />
                 </IconButton>
               </LightTooltip>
             </Box>

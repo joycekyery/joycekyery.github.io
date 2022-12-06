@@ -1,12 +1,30 @@
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
-import { Divider, Grid, IconButton, Typography } from '@mui/material'
+import { Divider, Grid, IconButton, Typography, Link } from '@mui/material'
 import WorkIcon from '@mui/icons-material/Work'
 import SchoolIcon from '@mui/icons-material/School'
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt'
 import resume from 'asset/Yung-ching Lin Resume.pdf'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import EmailIcon from '@mui/icons-material/Email'
+import { styled } from '@mui/material/styles'
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip'
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown'
+
 const AboutMe = () => {
+  const [emailCopyTooltip, setEmailCopyTooltip] = useState(false)
+  const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#F4F0F0',
+      color: 'rgba(0, 0, 0, 0.87)',
+      fontSize: 18,
+    },
+  }))
   const frontendPro = [
     'React JS',
     'Javascript (ES5 & ES6)',
@@ -24,8 +42,8 @@ const AboutMe = () => {
       paddingTop="50px"
       width="100%"
       sx={{
-        // background: 'linear-gradient(#B9E1DE,#022422 ,#022422 )'
-        background: '#022422',
+        background: 'linear-gradient(#022422 ,#022422 ,#B9E1DE)',
+        // background: '#022422',
       }}
       display="flex"
       flexDirection="column"
@@ -286,7 +304,7 @@ const AboutMe = () => {
               contained
               className="moreAboutMeButton"
               sx={{
-                color: '#d0bb96',
+                color: '#F4F0F0',
                 border: 'solid',
                 borderColor: '#d0bb96',
                 backgroundColor: '#022422',
@@ -313,6 +331,78 @@ const AboutMe = () => {
               Download CV &nbsp;
               <SystemUpdateAltIcon fontSize="inherit" />
             </IconButton>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <Box display="flex" flexDirection="row" alignItems="center" pb={12}>
+              <Typography
+                sx={{
+                  color: '#022422',
+                }}
+                variant="h5"
+              >
+                Check out more about me on
+              </Typography>
+              <KeyboardDoubleArrowDownIcon
+                fontSize="large"
+                sx={{
+                  color: '#022422',
+                }}
+              />
+            </Box>
+            <Box display="flex" flexDirection="row" alignItems="baseline">
+              <Link
+                p={1}
+                href="https://github.com/joycekyery"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GitHubIcon style={{ color: '#022422' }} fontSize="large" />
+              </Link>
+              <Link
+                p={1}
+                href="https://www.instagram.com/bleepbloopmylife/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon style={{ color: '#022422' }} fontSize="large" />
+              </Link>
+              <Link
+                p={1}
+                href="https://www.linkedin.com/in/yung-ching-lin/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon style={{ color: '#022422' }} fontSize="large" />
+              </Link>
+              <LightTooltip
+                title="Copied!"
+                open={emailCopyTooltip}
+                onOpen={() => {
+                  setTimeout(() => {
+                    setEmailCopyTooltip(false)
+                  }, 1500)
+                }}
+              >
+                <IconButton
+                  size="small"
+                  onClick={() => {
+                    setEmailCopyTooltip(true)
+                    navigator.clipboard.writeText('7a.joyce.lin@gmail.com')
+                  }}
+                >
+                  <EmailIcon style={{ color: '#022422' }} fontSize="large" />
+                </IconButton>
+              </LightTooltip>
+            </Box>
           </Box>
         </Grid>
       </Grid>

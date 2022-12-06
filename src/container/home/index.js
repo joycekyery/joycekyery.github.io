@@ -1,8 +1,5 @@
 import { Box } from '@mui/system'
 import React, { useState, useEffect } from 'react'
-// import PropTypes from 'prop-types'
-import test from 'asset/2021/20210115.png'
-import test2 from 'asset/2021/20210128sl.png'
 import { IconButton, Typography } from '@mui/material'
 import './index.scss'
 import classNames from 'classnames'
@@ -10,9 +7,10 @@ import { Fragment } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
 import { useNavigate } from 'react-router-dom/dist'
 import { ABOUT_ME } from 'route/routeConstant'
+import { image20210328 } from 'asset/2022'
 
 const Homepage = () => {
-  const images = [test, test2]
+  const images = [image20210328]
   const delay = 6000
   const [imageIndex, setImageIndex] = useState(0)
   const [anim, setAnim] = useState(false)
