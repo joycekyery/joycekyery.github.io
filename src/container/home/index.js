@@ -7,10 +7,22 @@ import { Fragment } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
 import { useNavigate } from 'react-router-dom/dist'
 import { ABOUT_ME } from 'route/routeConstant'
-import { image20210328 } from 'asset/2022'
+import {
+  image20210328,
+  image2021逼,
+  image20220319,
+  image20220610,
+  image2022061302,
+} from 'asset/2022'
 
 const Homepage = () => {
-  const images = [image20210328]
+  const images = [
+    image20210328,
+    image20220319,
+    image20220610,
+    image2022061302,
+    image2021逼,
+  ]
   const delay = 6000
   const [imageIndex, setImageIndex] = useState(0)
   const [anim, setAnim] = useState(false)
@@ -51,7 +63,7 @@ const Homepage = () => {
         height="100%"
         paddingTop="50px"
         width="100%"
-        sx={{ background: 'linear-gradient(#B9E1DE,#022422 )' }}
+        sx={{ background: 'linear-gradient(#022422, #4e7270, #B9E1DE )' }}
       >
         <Box
           minHeight="714px"
@@ -73,7 +85,7 @@ const Homepage = () => {
           >
             <Typography
               sx={{
-                color: '#000',
+                color: '#d0bb96',
               }}
               variant="h1"
             >
@@ -81,7 +93,7 @@ const Homepage = () => {
             </Typography>
             <Typography
               sx={{
-                color: '#000',
+                color: '#d0bb96',
               }}
               variant="h1"
             >
