@@ -8,6 +8,8 @@ import './index.scss'
 import classNames from 'classnames'
 import { Fragment } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
+import { useNavigate } from 'react-router-dom/dist'
+import { ABOUT_ME } from 'route/routeConstant'
 
 const Homepage = () => {
   const images = [test, test2]
@@ -16,6 +18,7 @@ const Homepage = () => {
   const [anim, setAnim] = useState(false)
   const [fadeout, setFadeout] = useState(false)
   const [fadein, setFadein] = useState(false)
+  const navigate = useNavigate()
   useEffect(() => {
     if (anim) {
       if (fadeout) {
@@ -168,6 +171,9 @@ const Homepage = () => {
             color: '#022422',
             transition: 'background-color 200ms linear',
           },
+        }}
+        onClick={() => {
+          navigate(ABOUT_ME)
         }}
       >
         More About Me
