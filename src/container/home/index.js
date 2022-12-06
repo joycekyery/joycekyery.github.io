@@ -1,6 +1,5 @@
-import { Box } from '@mui/system'
 import React, { useState, useEffect } from 'react'
-import { IconButton, Typography } from '@mui/material'
+import { IconButton, Typography, Box } from '@mui/material'
 import './index.scss'
 import classNames from 'classnames'
 import { Fragment } from 'react'
@@ -9,19 +8,21 @@ import { useNavigate } from 'react-router-dom/dist'
 import { ABOUT_ME } from 'route/routeConstant'
 import {
   image20210328,
-  image2021逼,
+  image2022061302,
   image20220319,
   image20220610,
-  image2022061302,
+  image20220810,
 } from 'asset/2022'
+import { image20210128sl } from 'asset/2021'
 
 const Homepage = () => {
   const images = [
     image20210328,
     image20220319,
+    image20220810,
     image20220610,
     image2022061302,
-    image2021逼,
+    image20210128sl,
   ]
   const delay = 6000
   const [imageIndex, setImageIndex] = useState(0)
@@ -138,7 +139,7 @@ const Homepage = () => {
                 marginTop: '-37px',
               }}
             >
-              <Typography
+              {/* <Typography
                 sx={{
                   color: '#8b8b8b',
                   // fontSize: '64px',
@@ -158,7 +159,7 @@ const Homepage = () => {
                 variant="h1"
               >
                 LIN
-              </Typography>
+              </Typography> */}
             </Box>
           </Box>
         </Box>
