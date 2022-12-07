@@ -24,7 +24,7 @@ const Homepage = () => {
     image2022061302,
     image20210128sl,
   ]
-  const delay = 6000
+  const delay = 2000
   const [imageIndex, setImageIndex] = useState(0)
   const [anim, setAnim] = useState(false)
   const [fadeout, setFadeout] = useState(false)
