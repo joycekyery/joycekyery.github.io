@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ddf0fedd.css",
-    "main.js": "/static/js/main.76c5a39e.js",
+    "main.js": "/static/js/main.8e7f239f.js",
     "static/js/496.2f60c40e.chunk.js": "/static/js/496.2f60c40e.chunk.js",
     "static/media/2021逼.png": "/static/media/2021逼.ad42664968a38768d436.png",
     "static/media/20220520.png": "/static/media/20220520.2131d1caad5febe14729.png",
@@ -72,11 +72,11 @@
     "static/media/onward.jpg": "/static/media/onward.4aa15fdf3ec2b44a5cf5.jpg",
     "index.html": "/index.html",
     "main.ddf0fedd.css.map": "/static/css/main.ddf0fedd.css.map",
-    "main.76c5a39e.js.map": "/static/js/main.76c5a39e.js.map",
+    "main.8e7f239f.js.map": "/static/js/main.8e7f239f.js.map",
     "496.2f60c40e.chunk.js.map": "/static/js/496.2f60c40e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ddf0fedd.css",
-    "static/js/main.76c5a39e.js"
+    "static/js/main.8e7f239f.js"
   ]
 }
