@@ -9,7 +9,7 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from '@mui/material/styles'
-import { router } from 'route/routeItems'
+import { artGalleryRoute, router } from 'route/routeItems'
 const NavbarWrapper = () => {
   return (
     <div>
@@ -38,7 +38,7 @@ function App() {
     {
       path: '/',
       element: <NavbarWrapper />,
-      children: router,
+      children: [router, artGalleryRoute],
     },
   ])
   return (

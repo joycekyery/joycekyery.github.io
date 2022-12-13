@@ -128,41 +128,7 @@ const Homepage = () => {
                 : 'none',
               backgroundImage: `url(${images[imageIndex]})`,
             }}
-          >
-            <Box
-              sx={{
-                width: 'fit-content',
-                display: 'flex',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                zIndex: '1',
-                marginLeft: '-32px',
-                marginTop: '-37px',
-              }}
-            >
-              {/* <Typography
-                sx={{
-                  color: '#8b8b8b',
-                  // fontSize: '64px',
-                  mixBlendMode: 'exclusion',
-                }}
-                variant="h1"
-              >
-                YUNG-CHING
-              </Typography>
-              <Typography
-                sx={{
-                  color: '#8b8b8b',
-                  // fontSize: '64px',
-
-                  mixBlendMode: 'exclusion',
-                }}
-                variant="h1"
-              >
-                LIN
-              </Typography> */}
-            </Box>
-          </Box>
+          />
         </Box>
       </Box>
       <IconButton
