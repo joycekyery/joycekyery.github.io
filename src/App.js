@@ -38,7 +38,7 @@ function App() {
     {
       path: '/',
       element: <NavbarWrapper />,
-      children: [router, artGalleryRoute],
+      children: [...router, artGalleryRoute],
     },
   ])
   return (

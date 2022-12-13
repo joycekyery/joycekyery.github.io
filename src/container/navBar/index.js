@@ -101,9 +101,9 @@ const NavBar = () => {
         backdropFilter: 'blur(10px)',
         animation: anim
           ? fadein
-            ? 'fadeIn .5s'
+            ? 'show .5s'
             : fadeout
-            ? 'fadout .5s'
+            ? 'hide .5s'
             : 'none'
           : 'none',
         display: show ? 'block' : 'none',

@@ -1,11 +1,11 @@
 
-.navBar{
-    @keyframes fadeIn {
+.navBar {
+    @keyframes show {
         0% {opacity: 0;
             height: 1px;}
         100% { opacity: 100; }
     }
-    @keyframes fadout {
+    @keyframes hide {
         0% {}
         100% { opacity: 0;
                  height: 1px; 
