@@ -113,8 +113,8 @@ const Homepage = () => {
               maxHeight: '70vh',
               maxWidth: '50vw',
               height: {
-                xs: '30vh',
-                sm: '30vh',
+                xs: '40vh',
+                sm: '40vh',
                 md: '50vh',
                 lg: '100vh',
                 xl: '100vh',
@@ -137,7 +137,13 @@ const Homepage = () => {
         sx={{
           position: 'absolute',
           right: '5%',
-          bottom: '10%',
+          bottom: {
+            xs: '20%',
+            sm: '20%',
+            md: '10%',
+            lg: '10%',
+            xl: '10%',
+          },
           color: '#d0bb96',
           border: 'solid',
           borderColor: '#d0bb96',

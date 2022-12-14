@@ -33,6 +33,17 @@ function App() {
       fontSize: '4.4rem',
     },
   }
+  theme.typography.h3 = {
+    [theme.breakpoints.up('xs')]: {
+      fontSize: '2rem',
+    },
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '3rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '3.2rem',
+    },
+  }
 
   const routers = createBrowserRouter([
     {

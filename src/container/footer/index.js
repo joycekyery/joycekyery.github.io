@@ -43,7 +43,15 @@ const Footer = () => {
           spacing={0.5}
           padding="0.5rem"
           direction="row"
-          justifyContent="space-between"
+          sx={{
+            justifyContent: {
+              xs: 'center',
+              sm: 'space-between',
+              md: 'space-between',
+              lg: 'space-between',
+              xl: 'space-between',
+            },
+          }}
         >
           <Grid item xs="auto">
             <Box

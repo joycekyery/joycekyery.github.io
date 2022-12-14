@@ -1,10 +1,20 @@
 import { Box } from '@mui/system'
-import React, { useEffect, useState } from 'react'
-import { Button, Menu, MenuItem, Typography } from '@mui/material'
+import React, { Fragment, useEffect, useState } from 'react'
+import {
+  Button,
+  Divider,
+  Menu,
+  MenuItem,
+  SwipeableDrawer,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { artGalleryRoute, router } from 'route/routeItems'
 import './index.scss'
 import { ART_GALLERY } from 'route/routeConstant'
+import MenuIcon from '@mui/icons-material/Menu'
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -14,13 +24,13 @@ const NavBar = () => {
   const [anim, setAnim] = useState(false)
   const [fadeout, setFadeout] = useState(false)
   const [fadein, setFadein] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const location = window.location.pathname.substring(
     1,
     window.location.pathname.length
   )
   const navigate = useNavigate()
-
   const newRouter = router.reduce((acc, curr) => {
     return { ...acc, [curr.path]: curr }
   }, {})
@@ -85,6 +95,18 @@ const NavBar = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY])
+  const theme = useTheme()
+  const sm = useMediaQuery(theme.breakpoints.up('sm'))
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return
+    }
+    setDrawerOpen(open)
+  }
 
   return (
     <Box
@@ -146,67 +168,141 @@ const NavBar = () => {
           >
             {newRouter[location] && newRouter[location].title}
           </Typography>
-          <Box pr={3}>
-            {router.map((r, index) => (
+          {sm ? (
+            <Box pr={3}>
+              {router.map((r, index) => (
+                <Button
+                  key={index}
+                  sx={{
+                    color: '#F4F0F0',
+                  }}
+                  onClick={() => {
+                    navigate(r.path)
+                  }}
+                >
+                  {r.title}
+                </Button>
+              ))}
               <Button
-                key={index}
+                id="demo-positioned-button"
                 sx={{
                   color: '#F4F0F0',
                 }}
-                onClick={() => {
-                  navigate(r.path)
+                onClick={(e) => {
+                  setAnchorEl(e.currentTarget)
+                }}
+                aria-controls={open ? 'demo-positioned-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+              >
+                {artGalleryRoute.title}
+              </Button>
+              <Menu
+                sx={{ zIndex: '9999' }}
+                id="demo-positioned-menu"
+                aria-labelledby="demo-positioned-button"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={() => {
+                  setAnchorEl(null)
+                }}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
                 }}
               >
-                {r.title}
+                {[...Array(4).keys()]
+                  .map((x) => x + 2019)
+                  .reverse()
+                  .map((item) => (
+                    <MenuItem
+                      key={item}
+                      onClick={() => {
+                        navigate(`${ART_GALLERY}/${item}`)
+                      }}
+                    >
+                      {item}
+                    </MenuItem>
+                  ))}
+              </Menu>
+            </Box>
+          ) : (
+            <Fragment>
+              <Button
+                onClick={() => {
+                  setDrawerOpen(true)
+                }}
+                sx={{
+                  color: '#F4F0F0',
+                }}
+              >
+                <MenuIcon />
               </Button>
-            ))}
-            <Button
-              id="demo-positioned-button"
-              sx={{
-                color: '#F4F0F0',
-              }}
-              onClick={(e) => {
-                setAnchorEl(e.currentTarget)
-              }}
-              aria-controls={open ? 'demo-positioned-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-            >
-              {artGalleryRoute.title}
-            </Button>
-            <Menu
-              sx={{ zIndex: '9999' }}
-              id="demo-positioned-menu"
-              aria-labelledby="demo-positioned-button"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={() => {
-                setAnchorEl(null)
-              }}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-            >
-              {[...Array(4).keys()]
-                .map((x) => x + 2019)
-                .reverse()
-                .map((item) => (
-                  <MenuItem
-                    key={item}
-                    onClick={() => {
-                      navigate(`${ART_GALLERY}/${item}`)
+              <SwipeableDrawer
+                sx={{ zIndex: '9999' }}
+                anchor="right"
+                open={drawerOpen}
+                onClose={toggleDrawer(false)}
+                onOpen={toggleDrawer(true)}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    backgroundColor: '#788177',
+                  }}
+                >
+                  {router.map((r, index) => (
+                    <Button
+                      key={index}
+                      sx={{
+                        color: '#F4F0F0',
+                      }}
+                      onClick={() => {
+                        navigate(r.path)
+                      }}
+                    >
+                      {r.title}
+                    </Button>
+                  ))}
+                  <Typography
+                    sx={{
+                      textAlign: 'center',
+                      color: '#c2b2b2',
                     }}
                   >
-                    {item}
-                  </MenuItem>
-                ))}
-            </Menu>
-          </Box>
+                    {artGalleryRoute.title}
+                  </Typography>
+                  <Divider
+                    sx={{
+                      color: '#F4F0F0',
+                    }}
+                  />
+                  {[...Array(4).keys()]
+                    .map((x) => x + 2019)
+                    .reverse()
+                    .map((item) => (
+                      <Button
+                        sx={{
+                          color: '#F4F0F0',
+                        }}
+                        key={item}
+                        onClick={() => {
+                          navigate(`${ART_GALLERY}/${item}`)
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
+                </Box>
+              </SwipeableDrawer>
+            </Fragment>
+          )}
         </Box>
       </Box>
     </Box>

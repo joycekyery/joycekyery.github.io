@@ -15,7 +15,7 @@ export const projects = [
     title: 'Personal Website',
     image: personalWebsiteImage,
     description: 'Static website, my personal website and portfolio',
-    tools: 'React JS + Material UI + CSS',
+    tools: 'React JS + Material UI + CSS + RWD',
     visit: 'https://joycekyery.github.io/',
     sourceCode: 'https://github.com/joycekyery/joycekyery.github.io',
   },

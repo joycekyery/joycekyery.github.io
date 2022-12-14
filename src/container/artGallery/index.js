@@ -1,4 +1,11 @@
-import { Button, ImageList, ImageListItem, Typography } from '@mui/material'
+import {
+  Button,
+  ImageList,
+  ImageListItem,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material'
 import { Box } from '@mui/system'
 import { imageSet2019 } from 'asset/2019/imageSet'
 import { imageSet2020 } from 'asset/2020/imageSet'
@@ -22,6 +29,8 @@ const ArtGallery = () => {
     2021: imageSet2021,
     2022: imageSet2022,
   }
+  const theme = useTheme()
+  const md = useMediaQuery(theme.breakpoints.up('md'))
   return (
     <Fragment>
       <Box
@@ -36,7 +45,12 @@ const ArtGallery = () => {
         flexDirection="column"
         justifyContent="flex-start"
       >
-        <ImageList variant="quilted" cols={6} gap={12} sx={{ padding: '16px' }}>
+        <ImageList
+          variant="quilted"
+          cols={md ? 6 : 2}
+          gap={12}
+          sx={{ padding: '16px' }}
+        >
           {Object.values(ImageSets[year]).map((item, index) => (
             <ImageListItem
               key={index}
