@@ -12,7 +12,6 @@ import {
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { artGalleryRoute, router } from 'route/routeItems'
-import './index.scss'
 import { ART_GALLERY } from 'route/routeConstant'
 import MenuIcon from '@mui/icons-material/Menu'
 
@@ -21,9 +20,6 @@ const NavBar = () => {
   const open = Boolean(anchorEl)
   const [show, setShow] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
-  const [anim, setAnim] = useState(false)
-  const [fadeout, setFadeout] = useState(false)
-  const [fadein, setFadein] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const location = window.location.pathname.substring(
@@ -37,23 +33,13 @@ const NavBar = () => {
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY === 0) {
-        if (!show) {
-          setShow(true)
-          setAnim(true)
-          setFadein(true)
-        }
+        setShow(true)
       } else {
         if (window.scrollY > lastScrollY) {
-          if (show) {
-            setAnim(true)
-            setFadeout(true)
-          }
+          setShow(false)
+
           // if scroll down hide the navbar
         } else {
-          if (!show) {
-            setAnim(true)
-            setFadein(true)
-          }
           setShow(true)
           // if scroll up show the navbar
         }
@@ -63,27 +49,6 @@ const NavBar = () => {
       setLastScrollY(window.scrollY)
     }
   }
-  useEffect(() => {
-    if (anim) {
-      if (fadein) {
-        setTimeout(() => {
-          setFadein(false)
-          setAnim(false)
-        }, 400)
-      }
-      if (fadeout) {
-        setTimeout(() => {
-          setFadeout(false)
-          setAnim(false)
-          if (window.scrollY > lastScrollY) {
-            setShow(false)
-          }
-        }, 400)
-      }
-    }
-    return () => {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [anim, fadein, fadeout])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -121,14 +86,7 @@ const NavBar = () => {
         width: '100%',
         height: '80px',
         backdropFilter: 'blur(10px)',
-        animation: anim
-          ? fadein
-            ? 'show .5s'
-            : fadeout
-            ? 'hide .5s'
-            : 'none'
-          : 'none',
-        display: show ? 'block' : 'none',
+        marginTop: show ? '0px' : '-80px',
       }}
     >
       <Box
