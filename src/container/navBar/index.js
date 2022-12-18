@@ -80,13 +80,12 @@ const NavBar = () => {
         position: 'fixed',
         padding: '0',
         margin: '0',
-        top: '0',
         left: '0',
         zIndex: '9999',
         width: '100%',
         height: '80px',
         backdropFilter: 'blur(10px)',
-        marginTop: show ? '0px' : '-80px',
+        top: show ? '0px' : '-80px',
       }}
     >
       <Box
