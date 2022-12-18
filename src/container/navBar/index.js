@@ -85,6 +85,7 @@ const NavBar = () => {
         width: '100%',
         height: '80px',
         backdropFilter: 'blur(10px)',
+        transform: 'translate3d(0,0,-80px)',
         top: show ? '0px' : '-80px',
       }}
     >
