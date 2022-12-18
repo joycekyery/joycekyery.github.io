@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ac3b7ed2.css",
-    "main.js": "/static/js/main.7d4235c8.js",
+    "main.css": "/static/css/main.596780a4.css",
+    "main.js": "/static/js/main.3632b978.js",
     "static/js/496.2f60c40e.chunk.js": "/static/js/496.2f60c40e.chunk.js",
     "static/media/2021逼.png": "/static/media/2021逼.ad42664968a38768d436.png",
     "static/media/20201129.png": "/static/media/20201129.84eed554b73aa11e06be.png",
@@ -93,15 +93,15 @@
     "static/media/20190103.png": "/static/media/20190103.312e6a842647c8a7a869.png",
     "static/media/20181223.png": "/static/media/20181223.fa824bf1c706e758bd2a.png",
     "static/media/20210621.png": "/static/media/20210621.3af6688f1fafc949fb11.png",
-    "static/media/Yung-ching Lin Resume.pdf": "/static/media/Yung-ching Lin Resume.bdac1b62d116f3eac6dc.pdf",
+    "static/media/Yung-ching Lin Resume.pdf": "/static/media/Yung-ching Lin Resume.6469a1b916419d6f6db6.pdf",
     "static/media/onward.jpg": "/static/media/onward.4aa15fdf3ec2b44a5cf5.jpg",
     "index.html": "/index.html",
-    "main.ac3b7ed2.css.map": "/static/css/main.ac3b7ed2.css.map",
-    "main.7d4235c8.js.map": "/static/js/main.7d4235c8.js.map",
+    "main.596780a4.css.map": "/static/css/main.596780a4.css.map",
+    "main.3632b978.js.map": "/static/js/main.3632b978.js.map",
     "496.2f60c40e.chunk.js.map": "/static/js/496.2f60c40e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac3b7ed2.css",
-    "static/js/main.7d4235c8.js"
+    "static/css/main.596780a4.css",
+    "static/js/main.3632b978.js"
   ]
 }
