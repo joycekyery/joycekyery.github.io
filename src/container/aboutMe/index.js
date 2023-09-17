@@ -76,6 +76,7 @@ const AboutMe = () => {
             sx={{
               backgroundColor: '#F4F0F0',
               height: '100%',
+              borderRadius: '10px',
             }}
             p={2}
           >
@@ -130,6 +131,7 @@ const AboutMe = () => {
             </Box>
           </Box>
         </Grid>
+
         <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
           <Typography
             sx={{
@@ -295,6 +297,7 @@ const AboutMe = () => {
             </Box>
           </Box>
         </Grid>
+
         <Grid item xs={12}>
           <Box
             sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}

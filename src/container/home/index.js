@@ -65,7 +65,7 @@ const Homepage = () => {
         minHeight="100vh"
         paddingTop="80px"
         width="100%"
-        sx={{ background: 'linear-gradient(#022422, #4e7270, #B9E1DE )' }}
+        sx={{ background: 'linear-gradient(#0dbcb2, #3ad9d0, #f2fffe )' }}
       >
         <Box
           minHeight="714px"
@@ -87,7 +87,7 @@ const Homepage = () => {
           >
             <Typography
               sx={{
-                color: '#d0bb96',
+                color: '#788177',
               }}
               variant="h1"
             >
@@ -95,7 +95,7 @@ const Homepage = () => {
             </Typography>
             <Typography
               sx={{
-                color: '#d0bb96',
+                color: '#788177',
               }}
               variant="h1"
             >
@@ -144,14 +144,14 @@ const Homepage = () => {
             lg: '10%',
             xl: '10%',
           },
-          color: '#d0bb96',
-          border: 'solid',
-          borderColor: '#d0bb96',
-          backgroundColor: '#022422',
+          color: '#788177',
+          // border: 'solid',
+          // borderColor: '#ffffff',
+          // backgroundColor: '#ffffff',
           borderRadius: '20px',
           '&:hover': {
-            backgroundColor: '#d0bb96',
-            color: '#022422',
+            backgroundColor: '#788177',
+            color: '#ffffff',
             transition: 'background-color 200ms linear',
           },
         }}

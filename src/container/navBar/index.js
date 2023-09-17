@@ -91,7 +91,7 @@ const NavBar = () => {
     >
       <Box
         sx={{
-          backgroundColor: '#E7D7C4',
+          backgroundColor: '#ffffff',
           width: 'inherit',
           height: 'inherit',
           opacity: '0.5',
