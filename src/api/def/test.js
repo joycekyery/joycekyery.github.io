@@ -7,5 +7,13 @@ const artAPI = {
       ...data,
     },
   }),
+  findAll: (data) => ({
+    method: 'get',
+    url: `artPortfolio${data}`,
+    headers: {},
+    data: {
+      ...data,
+    },
+  }),
 }
 export default artAPI

@@ -1,16 +1,17 @@
-import { Box, Button, CardMedia } from '@mui/material'
-import React, { useState } from 'react'
-import { imageSet2019 } from 'asset/2019/imageSet'
+import { Box, Button } from '@mui/material'
+import React from 'react'
+// import React, { useState } from 'react'
 import artAPI from 'api/def/test'
 import AxiosV1 from 'api/axiosV1'
+import { imageSet2020 } from 'asset/2020/imageSet'
 const Test = () => {
-  const [encodedImg, setencodedImg] = useState('')
+  // const [encodedImg, setencodedImg] = useState('')
 
   // const test = imageSet2019.image2018092404
 
   const click = () => {
     Promise.all(
-      Object.values(imageSet2019).map(async (test) => {
+      Object.values(imageSet2020).map(async (test) => {
         await fetch(test.image)
           .then((response) => response.blob())
           .then((blob) => {
@@ -18,7 +19,7 @@ const Test = () => {
             reader.readAsDataURL(blob)
             reader.onloadend = async () => {
               const base64data = reader.result
-              setencodedImg(base64data)
+              // setencodedImg(base64data)
               return await AxiosV1(
                 artAPI.create({
                   title: test.title,
@@ -60,7 +61,7 @@ const Test = () => {
   return (
     <Box paddingTop="500px">
       <Button onClick={click}>click</Button>
-      {encodedImg !== '' && <CardMedia component="img" src={encodedImg} />}
+      {/* {encodedImg !== '' && <CardMedia component="img" src={encodedImg} />} */}
     </Box>
   )
 }

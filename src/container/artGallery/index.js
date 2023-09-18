@@ -1,21 +1,22 @@
 import {
   Button,
+  Grid,
   ImageList,
   ImageListItem,
+  Skeleton,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
 import { Box } from '@mui/system'
-import { imageSet2019 } from 'asset/2019/imageSet'
-import { imageSet2020 } from 'asset/2020/imageSet'
-import { imageSet2021 } from 'asset/2021/imageSet'
-import { imageSet2022 } from 'asset/2022/imageSet'
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import CloseIcon from '@mui/icons-material/Close'
+import callApi from 'api/util/callAPI'
+import AxiosV1 from 'api/axiosV1'
+import artAPI from 'api/def/test'
 
 const ArtGallery = () => {
   const { year } = useParams()
@@ -23,12 +24,28 @@ const ArtGallery = () => {
     open: false,
     currentIndex: 0,
   })
-  const ImageSets = {
-    2019: imageSet2019,
-    2020: imageSet2020,
-    2021: imageSet2021,
-    2022: imageSet2022,
-  }
+  const [cancelToken] = useState(AxiosV1.CancelToken.source())
+  const [ImageSets, setImageSets] = useState(null)
+
+  useEffect(() => {
+    callApi({
+      apiConfig: artAPI.findAll(`?year=${year}`),
+      onStart: () => {},
+      onSuccess: (res) => {
+        setImageSets(res.data)
+      },
+      onError: (err) => {
+        // setError({ error: true, errorMessage: err.response.data })
+      },
+
+      onFinally: () => {},
+    })
+    return () => {
+      cancelToken.cancel('Request cancel.')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cancelToken])
+
   const theme = useTheme()
   const md = useMediaQuery(theme.breakpoints.up('md'))
   return (
@@ -51,31 +68,46 @@ const ArtGallery = () => {
           gap={12}
           sx={{ padding: '16px' }}
         >
-          {Object.values(ImageSets[year]).map((item, index) => (
-            <ImageListItem
-              key={index}
-              cols={item.cols || 1}
-              rows={item.rows || 1}
-              sx={{
-                transition: 'transform .2s',
-                '&:hover': {
-                  transform: 'scale(1.05)',
-                  objectFit: 'none',
-                  cursor: 'pointer',
-                },
-              }}
-            >
-              <img
-                onClick={() => {
-                  setImageOpen({ open: true, image: item, currentIndex: index })
+          {ImageSets === null ? (
+            <Grid container wrap="nowrap">
+              {Array.from(new Array(3)).map((item, index) => (
+                <Box key={index} sx={{ width: 210, marginRight: 0.5, my: 5 }}>
+                  <Skeleton variant="rectangular" width={210} height={118} />
+                </Box>
+              ))}
+            </Grid>
+          ) : (
+            ImageSets.map((item, index) => (
+              // {Object.values(ImageSets[year]).map((item, index) => (
+              <ImageListItem
+                key={index}
+                cols={item.cols || 1}
+                rows={item.rows || 1}
+                sx={{
+                  transition: 'transform .2s',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                    objectFit: 'none',
+                    cursor: 'pointer',
+                  },
                 }}
-                src={item.image}
-                srcSet={item.image}
-                alt={item.title}
-                loading="lazy"
-              />
-            </ImageListItem>
-          ))}
+              >
+                <img
+                  onClick={() => {
+                    setImageOpen({
+                      open: true,
+                      image: item,
+                      currentIndex: index,
+                    })
+                  }}
+                  src={item.image_base64}
+                  srcSet={item.image_base64}
+                  alt={item.title}
+                  loading="lazy"
+                />
+              </ImageListItem>
+            ))
+          )}
         </ImageList>
       </Box>
       {imageOpen.open && (
