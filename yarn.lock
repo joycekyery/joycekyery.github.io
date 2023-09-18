@@ -2875,10 +2875,10 @@ axe-core@^4.4.3:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.4.3.tgz#11c74d23d5013c0fa5d183796729bc3482bd2f6f"
   integrity sha512-32+ub6kkdhhWick/UjvEwRchgoetXqTK14INLqbGm5U2TzBkBNF3nQtLYm8ovxSkQWArjEQvftCKryjZaATu3w==
 
-axios@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.2.0.tgz#1cb65bd75162c70e9f8d118a905126c4a201d383"
-  integrity sha512-zT7wZyNYu3N5Bu0wuZ6QccIf93Qk1eV8LOewxgjOZFd2DenOs98cJ7+Y6703d0wkaXGY6/nZd4EweJaHz9uzQw==
+axios@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.5.0.tgz#f02e4af823e2e46a9768cfc74691fdd0517ea267"
+  integrity sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
@@ -7986,11 +7986,6 @@ react-scripts@^5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
-
-react-simple-image-viewer@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/react-simple-image-viewer/-/react-simple-image-viewer-1.2.2.tgz#2a93413512b76ce8d336dd5fa19660a970d05be4"
-  integrity sha512-Vk9p6Glm7uE4cSEBGkqZPGC3qoZcAwd48nq5/JN13NKd9rUrUIWZWFEmRzO+FVwl6c0UdjSDkthGoaoiYeWVjg==
 
 react-transition-group@^4.4.5:
   version "4.4.5"
