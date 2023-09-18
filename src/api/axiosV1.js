@@ -1,12 +1,8 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:8080/'
-
-// const baseURL =
-//   process.env.REACT_APP_TEST_MODE === 'ON'
-//     ? 'https://localhost:8000'
-//     : 'https://dont-recipe-frontback.herokuapp.com/'
-
+const baseURL = process.env.REACT_APP_BASE_URL
+console.log(baseURL)
+console.log(process.env)
 const AxiosV1 = axios.create({
   baseURL: baseURL,
   withCredentials: true,
