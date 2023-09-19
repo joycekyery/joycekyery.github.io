@@ -1,8 +1,8 @@
 import { Box, Button } from '@mui/material'
 import React from 'react'
 // import React, { useState } from 'react'
-import artAPI from 'api/def/test'
-import AxiosV1 from 'api/axiosV1'
+// import artAPI from 'api/def/test'
+// import AxiosV1 from 'api/axiosV1'
 // import callApi from 'api/util/callAPI'
 // import { imageSet2020 } from 'asset/2020/imageSet'
 const Test = () => {

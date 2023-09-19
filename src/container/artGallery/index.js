@@ -28,13 +28,10 @@ const ArtGallery = () => {
   const [ImageSets, setImageSets] = useState(false)
 
   useEffect(() => {
-    setImageSets(false)
     callApi({
       apiConfig: artAPI.findAll(year),
       onStart: () => {},
       onSuccess: (res) => {
-        console.log(res.data)
-        console.log(res)
         setImageSets(res.data)
       },
       onError: (err) => {
@@ -43,8 +40,11 @@ const ArtGallery = () => {
 
       onFinally: () => {},
     })
+
     return () => {
+      console.log('unmount')
       cancelToken.cancel('Request cancel.')
+      setImageSets(false)
     }
   }, [cancelToken, year])
 

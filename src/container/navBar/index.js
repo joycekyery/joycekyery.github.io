@@ -9,6 +9,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  Link,
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { artGalleryRoute, router } from 'route/routeItems'
@@ -21,7 +22,7 @@ const NavBar = () => {
   const [show, setShow] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [drawerOpen, setDrawerOpen] = useState(false)
-
+  console.log(process.env.PUBLIC_URL)
   const location = window.location.pathname.substring(
     1,
     window.location.pathname.length
@@ -177,13 +178,14 @@ const NavBar = () => {
                   .map((x) => x + 2019)
                   .reverse()
                   .map((item) => (
-                    <MenuItem
-                      key={item}
-                      onClick={() => {
-                        navigate(`${ART_GALLERY}/${item}`)
-                      }}
-                    >
-                      {item}
+                    <MenuItem key={item}>
+                      <Link
+                        href={`${process.env.REACT_APP_PUBLIC_URL}${ART_GALLERY}/${item}`}
+                        underline="none"
+                        key={item}
+                      >
+                        {item}
+                      </Link>
                     </MenuItem>
                   ))}
               </Menu>
@@ -245,17 +247,17 @@ const NavBar = () => {
                     .map((x) => x + 2019)
                     .reverse()
                     .map((item) => (
-                      <Button
+                      <Link
                         sx={{
                           color: '#F4F0F0',
+                          alignSelf: 'center',
                         }}
+                        href={`${process.env.REACT_APP_PUBLIC_URL}${ART_GALLERY}/${item}`}
+                        underline="none"
                         key={item}
-                        onClick={() => {
-                          navigate(`${ART_GALLERY}/${item}`)
-                        }}
                       >
                         {item}
-                      </Button>
+                      </Link>
                     ))}
                 </Box>
               </SwipeableDrawer>
