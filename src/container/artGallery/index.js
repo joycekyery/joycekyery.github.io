@@ -25,14 +25,15 @@ const ArtGallery = () => {
     currentIndex: 0,
   })
   const [cancelToken] = useState(AxiosV1.CancelToken.source())
-  const [ImageSets, setImageSets] = useState(null)
+  const [ImageSets, setImageSets] = useState(false)
 
   useEffect(() => {
-    setImageSets(null)
+    setImageSets(false)
     callApi({
       apiConfig: artAPI.findAll(year),
       onStart: () => {},
       onSuccess: (res) => {
+        console.log(res.data)
         setImageSets(res.data)
       },
       onError: (err) => {
@@ -68,7 +69,7 @@ const ArtGallery = () => {
           gap={12}
           sx={{ padding: '16px' }}
         >
-          {ImageSets === null ? (
+          {!ImageSets ? (
             <Grid container wrap="nowrap">
               {Array.from(new Array(3)).map((item, index) => (
                 <Box key={index} sx={{ width: 210, marginRight: 0.5, my: 5 }}>
