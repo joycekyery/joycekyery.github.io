@@ -9,7 +9,7 @@ const artAPI = {
   }),
   findAll: (data) => ({
     method: 'get',
-    url: `artPortfolio${data}`,
+    url: `artPortfolio/findByYear/${data}`,
     headers: {},
     data: {
       ...data,

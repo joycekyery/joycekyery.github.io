@@ -31,4 +31,4 @@ export const artGalleryRoute = {
   element: <ArtGallery />,
   title: 'Art',
 }
-export const router = [test, homeRoute, aboutMeRoute, projectRoute]
+export const router = [homeRoute, aboutMeRoute, projectRoute]

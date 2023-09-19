@@ -13,16 +13,16 @@ import {
   image20220610,
   image20220810,
 } from 'asset/2022'
-import { image20210128sl } from 'asset/2021'
+import { image20210128 } from 'asset/2021'
 
 const Homepage = () => {
   const images = [
+    image20210128,
     image20210328,
     image20220319,
     image20220810,
     image20220610,
     image2022061302,
-    image20210128sl,
   ]
   const delay = 2000
   const [imageIndex, setImageIndex] = useState(0)

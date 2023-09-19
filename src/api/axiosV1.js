@@ -1,11 +1,10 @@
 import axios from 'axios'
 
 const baseURL = process.env.REACT_APP_BASE_URL
-console.log(baseURL)
-console.log(process.env)
 const AxiosV1 = axios.create({
   baseURL: baseURL,
-  withCredentials: true,
+
+  // withCredentials: true,
   // data: { header: { token: localStorage.token || '' } },
 })
 AxiosV1.CancelToken = axios.CancelToken

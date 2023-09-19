@@ -28,8 +28,9 @@ const ArtGallery = () => {
   const [ImageSets, setImageSets] = useState(null)
 
   useEffect(() => {
+    setImageSets(null)
     callApi({
-      apiConfig: artAPI.findAll(`?year=${year}`),
+      apiConfig: artAPI.findAll(year),
       onStart: () => {},
       onSuccess: (res) => {
         setImageSets(res.data)
@@ -43,8 +44,7 @@ const ArtGallery = () => {
     return () => {
       cancelToken.cancel('Request cancel.')
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cancelToken])
+  }, [cancelToken, year])
 
   const theme = useTheme()
   const md = useMediaQuery(theme.breakpoints.up('md'))
@@ -77,8 +77,8 @@ const ArtGallery = () => {
               ))}
             </Grid>
           ) : (
+            ImageSets &&
             ImageSets.map((item, index) => (
-              // {Object.values(ImageSets[year]).map((item, index) => (
               <ImageListItem
                 key={index}
                 cols={item.cols || 1}
@@ -131,8 +131,7 @@ const ArtGallery = () => {
               flexDirection: 'row',
               width: '100%',
               height:
-                Object.values(ImageSets[year])[imageOpen.currentIndex]
-                  .description !== ''
+                ImageSets[imageOpen.currentIndex].description !== ''
                   ? 'calc(100% - 50px)'
                   : '100%',
             }}
@@ -164,15 +163,9 @@ const ArtGallery = () => {
                 onClick={(e) => {
                   e.stopPropagation()
                 }}
-                src={
-                  Object.values(ImageSets[year])[imageOpen.currentIndex].image
-                }
-                srcSet={
-                  Object.values(ImageSets[year])[imageOpen.currentIndex].image
-                }
-                alt={
-                  Object.values(ImageSets[year])[imageOpen.currentIndex].title
-                }
+                src={ImageSets[imageOpen.currentIndex].image_base64}
+                srcSet={ImageSets[imageOpen.currentIndex].image_base64}
+                alt={ImageSets[imageOpen.currentIndex].title}
                 loading="lazy"
               />
             </Box>
@@ -187,10 +180,7 @@ const ArtGallery = () => {
             >
               <Button
                 sx={{ color: '#fff' }}
-                disabled={
-                  imageOpen.currentIndex ===
-                  Object.values(ImageSets[year]).length - 1
-                }
+                disabled={imageOpen.currentIndex === ImageSets.length - 1}
                 onClick={(e) => {
                   e.stopPropagation()
                   setImageOpen({ open: false, currentIndex: 0 })
@@ -200,10 +190,7 @@ const ArtGallery = () => {
               </Button>
               <Button
                 sx={{ color: '#fff', height: '100%', marginBottom: '24px' }}
-                disabled={
-                  imageOpen.currentIndex ===
-                  Object.values(ImageSets[year]).length - 1
-                }
+                disabled={imageOpen.currentIndex === ImageSets.length - 1}
                 onClick={(e) => {
                   e.stopPropagation()
                   setImageOpen((prev) => ({
@@ -216,8 +203,7 @@ const ArtGallery = () => {
               </Button>
             </Box>
           </Box>
-          {Object.values(ImageSets[year])[imageOpen.currentIndex]
-            .description !== '' && (
+          {ImageSets[imageOpen.currentIndex].description !== '' && (
             <Box
               height="50px"
               sx={{
@@ -236,10 +222,7 @@ const ArtGallery = () => {
                 sx={{ color: '#fff', textAlign: 'center' }}
                 variant="h6"
               >
-                {
-                  Object.values(ImageSets[year])[imageOpen.currentIndex]
-                    .description
-                }
+                {ImageSets[imageOpen.currentIndex].description}
               </Typography>
             </Box>
           )}
