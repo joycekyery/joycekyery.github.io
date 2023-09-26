@@ -8,15 +8,15 @@ export const projects = [
     description:
       "Recipe forum for users to upload recipes and view others' work. Feel free to register or use the playaround account:user01 password:00000000",
     tools: 'MongoDB + node.js + React JS + Material UI + axios + CSS',
-    visit: 'https://dont-forget-your-recipe.onrender.com/',
-    sourceCode: 'https://github.com/IT-Project-Team-70/IT-Project',
+    visit: 'https://dont-forget-your-recipe-01b6e5c5214e.herokuapp.com/',
+    sourceCode: 'https://github.com/joycekyery/IT-Project',
   },
   {
     title: 'Personal Website',
     image: personalWebsiteImage,
-    description: 'Static website, my personal website and portfolio',
+    description: 'My personal website and portfolio',
     tools: 'React JS + Material UI + CSS + MongoDb + NodeJS + Express',
-    visit: 'https://joycekyery.github.io/',
+    visit: 'https://www.yungchingl.com/',
     sourceCode: 'https://github.com/joycekyery/joycekyery.github.io',
   },
   {

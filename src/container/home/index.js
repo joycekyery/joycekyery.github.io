@@ -6,23 +6,14 @@ import { Fragment } from 'react'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
 import { useNavigate } from 'react-router-dom/dist'
 import { ABOUT_ME } from 'route/routeConstant'
-import {
-  image20210328,
-  image2022061302,
-  image20220319,
-  image20220610,
-  image20220810,
-} from 'asset/2022'
-import { image20210128 } from 'asset/2021'
 
 const Homepage = () => {
   const images = [
-    image20210128,
-    image20210328,
-    image20220319,
-    image20220810,
-    image20220610,
-    image2022061302,
+    'https://images.plurk.com/3d3Aq6O2UTbY1iPD9NwA7v.png',
+    'https://images.plurk.com/6a3cjbLpV1IliWgPEUcJAK.png',
+    'https://images.plurk.com/5B3cEHs4U7SpS28oap16pv.png',
+    'https://images.plurk.com/1m1agC92tuDKdLTFhlgtrr.png',
+    'https://images.plurk.com/6k631HcSM3WKsH9o4V4vWz.png',
   ]
   const delay = 2000
   const [imageIndex, setImageIndex] = useState(0)

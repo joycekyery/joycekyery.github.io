@@ -32,8 +32,8 @@ You may also see any lint errors in the console.
 
 ## Deployment
 
-Deploy on https://joycekyery.github.io/
-Deployed using [gh-pages](https://github.com/tschaub/gh-pages)
+view here https://www.yungchingl.com/
+Deployed using Heroku
 
 ## Coding Style
 
@@ -44,6 +44,7 @@ Make sure to use `VScode` and install extensions
 #### [`Prettier`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) [`ESlint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 #### Setup Auto formatting
+
 use `crtl+shift+p` to open Vscode panel
 
 under the panel, type and select `format document wit`h, choose `Prettier` as the formatter
@@ -58,6 +59,7 @@ Check at the bottom line of your VScode
 `git config core.autocrlf false`
 
 ### Using PropTypes
+
 import PropTypes with
 `import PropTypes from 'prop-types'`
 
@@ -74,5 +76,5 @@ Component.propTypes = {
     prop2=PropTypes.func,
 }
 ```
-[see more about typechecking and using PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
+[see more about typechecking and using PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
