@@ -32,6 +32,7 @@ const ArtGallery = () => {
       apiConfig: artAPI.findAll(year),
       onStart: () => {},
       onSuccess: (res) => {
+        res.data.sort((a, b) => (a.id > b.id ? 1 : -1))
         setImageSets(res.data)
       },
       onError: (err) => {
@@ -102,8 +103,8 @@ const ArtGallery = () => {
                       currentIndex: index,
                     })
                   }}
-                  src={item.image_base64}
-                  srcSet={item.image_base64}
+                  src={item.image}
+                  srcSet={item.image}
                   alt={item.title}
                   loading="lazy"
                 />
@@ -165,8 +166,8 @@ const ArtGallery = () => {
                 onClick={(e) => {
                   e.stopPropagation()
                 }}
-                src={ImageSets[imageOpen.currentIndex].image_base64}
-                srcSet={ImageSets[imageOpen.currentIndex].image_base64}
+                src={ImageSets[imageOpen.currentIndex].image}
+                srcSet={ImageSets[imageOpen.currentIndex].image}
                 alt={ImageSets[imageOpen.currentIndex].title}
                 loading="lazy"
               />
