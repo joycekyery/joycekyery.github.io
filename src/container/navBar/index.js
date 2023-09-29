@@ -174,7 +174,7 @@ const NavBar = () => {
                   horizontal: 'left',
                 }}
               >
-                {[...Array(4).keys()]
+                {[...Array(5).keys()]
                   .map((x) => x + 2019)
                   .reverse()
                   .map((item) => (
